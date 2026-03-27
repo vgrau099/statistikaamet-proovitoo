@@ -201,7 +201,6 @@ export default function App() {
           {/* RIGHT */}
           {ekraan !== "tulemused" && (
             <div className="side-image">
-              
             </div>
           )}
 
