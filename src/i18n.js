@@ -6,13 +6,13 @@ const t = {
     accessibilityUrl: "https://www.stat.ee/et/ligipaasetavus",
 
     // Welcome screen
-    welcomeTitle: "Eesti Viktoriin",
+    welcomeTitle: "Viktoriin Eesti kohta",
     welcomeDesc: (n) =>
-      `Testi oma teadmisi Eesti kohta! Viktoriin koosneb ${n} küsimusest ning iga küsimuse juures saad kohese tagasiside.`,
-    welcomeRule1: "✦ Vali iga küsimuse juures üks vastus",
-    welcomeRule2: "✦ Saad kohese tagasiside iga vastuse kohta",
-    welcomeRule3: "✦ Lõpus näed oma tulemust koos kokkuvõttega",
-    welcomeBtn: "Alusta viktoriin",
+      `Testi oma teadmisi Eesti kohta! Viktoriin koosneb ${n} küsimusest.`,
+    welcomeRule1: "Vali igale küsimusele üks vastus",
+    welcomeRule2: "Saad kohe pärast küsimuse vastamist tagasisidet",
+    welcomeRule3: "Lõpus näed oma tulemust koos kokkuvõttega",
+    welcomeBtn: "Alusta!",
 
     // Quiz screen
     question: "Küsimus",
@@ -20,10 +20,10 @@ const t = {
     feedbackCorrect: "✔ Õige vastus! Tubli!",
     feedbackWrong: (correct) => `✘ Vale vastus. Õige oli: ${correct}`,
     nextBtn: "Järgmine küsimus",
-    finishBtn: "Vaata tulemused",
+    finishBtn: "Vaata tulemusi",
 
     // Results screen
-    resultsTitle: "Viktoriin lõppenud!",
+    resultsTitle: "Viktoriin on lõppenud!",
     msg100: "Suurepärane! Kõik vastused õiged, Tubli!",
     msg80: "Väga hea tulemus!",
     msg60: "Hea töö!",
@@ -49,18 +49,18 @@ const t = {
 
   EN: {
     // Header
-    headerTitle: "Internship project",
+    headerTitle: "Internship projsect",
     accessibility: "Accessibility",
     accessibilityUrl: "https://www.stat.ee/en/accessibility",
 
     // Welcome screen
-    welcomeTitle: "Estonian Quiz",
+    welcomeTitle: "Quiz about Estonia",
     welcomeDesc: (n) =>
       `Test your knowledge about Estonia! The quiz consists of ${n} questions and you get instant feedback after each one.`,
-    welcomeRule1: "✦ Choose one answer per question",
-    welcomeRule2: "✦ Get instant feedback on every answer",
-    welcomeRule3: "✦ See your final score and summary at the end",
-    welcomeBtn: "Start quiz",
+    welcomeRule1: "Choose one answer per question",
+    welcomeRule2: "Get instant feedback on every answer",
+    welcomeRule3: "See your final score and summary at the end",
+    welcomeBtn: "Start!",
 
     // Quiz screen
     question: "Question",
