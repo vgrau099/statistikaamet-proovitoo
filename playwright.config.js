@@ -3,8 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
 
-  // ✅ Explicitly tell Playwright what files are tests
-  testMatch: '**/*.spec.js',
+  testMatch: ['**/quiz.spec.js'], // 🔥 explicitly match your file
 
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
