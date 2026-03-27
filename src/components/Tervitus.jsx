@@ -1,6 +1,6 @@
 import t from "../i18n";
 
-const PILDI_URL = "https://www.shutterstock.com/image-vector/vector-illustration-girl-student-taking-260nw-2486041381.jpg";
+const PILDI_URL = "https://imgs.search.brave.com/KEn3_2dnE8D0wG7kiOgVjFXgvR_rexOktu3FtCVpgyI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQw/OTg3ODg4Ni9waG90/by9jbG9zZS11cC1w/aG90by1vZi1tYW4t/aGFuZHMtd3JpdGlu/Zy1ub3Rlcy1pbi1h/LW5vdGVib29rLWR1/cmluZy1sZWN0dXJl/LWF0LWNvbGxlZ2Uu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PS13cURjcmJqQ0FP/VE5NNkE0LXlUTFV0/S3Nvb09CRlhaZ0dF/ZEx1bWtSckE9";
 
 export default function Tervitus({ onStart, koguKüsimusi, lang }) {
   const tr = t[lang];
@@ -31,7 +31,7 @@ export default function Tervitus({ onStart, koguKüsimusi, lang }) {
             <img src={PILDI_URL} alt={tr.welcomeTitle} />
           ) : (
             <span className="tervitus-pilt-placeholder">
-              Lisa pildi URL<br />Tervitus.jsx failis
+              URL<br />
             </span>
           )}
         </div>

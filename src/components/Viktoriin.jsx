@@ -1,31 +1,32 @@
 import { useState } from "react";
 import t from "../i18n";
 
-export default function Viktoriiin({ küsimused, onFinish, lang }) {
+export default function Viktoriin({ küsimused, onFinish, lang }) {
   const tr = t[lang];
 
   const [praeguneIndeks, setPraeguneIndeks] = useState(0);
-  const [valitudVariant, setValitudVariant] = useState(null);
+  const [valitudIndeks, setValitudIndeks] = useState(null);
   const [tagasiside, setTagasiside] = useState(null);
   const [vastused, setVastused] = useState([]);
 
   const praeguneKüsimus = küsimused[praeguneIndeks];
+  const langData = praeguneKüsimus[lang]; // { küsimus, valikud }
   const onViimane = praeguneIndeks === küsimused.length - 1;
   const skoor = vastused.filter((v) => v.onÕige).length;
 
-  function valiVariant(variant) {
+  function valiVariant(indeks) {
     if (tagasiside !== null) return;
 
-    const onÕige = variant === praeguneKüsimus.õigeVastus;
-    setValitudVariant(variant);
+    const onÕige = indeks === praeguneKüsimus.õigeIndeks;
+    setValitudIndeks(indeks);
     setTagasiside(onÕige ? "õige" : "vale");
 
     setVastused((eelmised) => [
       ...eelmised,
       {
-        küsimus: praeguneKüsimus.küsimus,
-        valitud: variant,
-        õige: praeguneKüsimus.õigeVastus,
+        küsimus: langData.küsimus,
+        valitud: langData.valikud[indeks],
+        õige: langData.valikud[praeguneKüsimus.õigeIndeks],
         onÕige,
       },
     ]);
@@ -36,15 +37,15 @@ export default function Viktoriiin({ küsimused, onFinish, lang }) {
       onFinish(vastused);
     } else {
       setPraeguneIndeks((i) => i + 1);
-      setValitudVariant(null);
+      setValitudIndeks(null);
       setTagasiside(null);
     }
   }
 
-  function variandiKlass(variant) {
+  function variandiKlass(indeks) {
     if (tagasiside === null) return "option-btn";
-    if (variant === praeguneKüsimus.õigeVastus) return "option-btn option-correct";
-    if (variant === valitudVariant) return "option-btn option-wrong";
+    if (indeks === praeguneKüsimus.õigeIndeks) return "option-btn option-correct";
+    if (indeks === valitudIndeks) return "option-btn option-wrong";
     return "option-btn option-disabled";
   }
 
@@ -65,16 +66,16 @@ export default function Viktoriiin({ küsimused, onFinish, lang }) {
       </div>
 
       <h2 className="quiz-question" data-testid="question-text">
-        {praeguneKüsimus.küsimus}
+        {langData.küsimus}
       </h2>
 
       <div className="options-list">
-        {praeguneKüsimus.valikud.map((variant) => (
+        {langData.valikud.map((variant, indeks) => (
           <button
-            key={variant}
-            className={variandiKlass(variant)}
-            onClick={() => valiVariant(variant)}
-            data-testid={`option-${variant}`}
+            key={indeks}
+            className={variandiKlass(indeks)}
+            onClick={() => valiVariant(indeks)}
+            data-testid={`option-${indeks}`}
             disabled={tagasiside !== null}
           >
             {variant}
@@ -89,7 +90,7 @@ export default function Viktoriiin({ küsimused, onFinish, lang }) {
         >
           {tagasiside === "õige"
             ? tr.feedbackCorrect
-            : tr.feedbackWrong(praeguneKüsimus.õigeVastus)}
+            : tr.feedbackWrong(langData.valikud[praeguneKüsimus.õigeIndeks])}
         </div>
       )}
 
